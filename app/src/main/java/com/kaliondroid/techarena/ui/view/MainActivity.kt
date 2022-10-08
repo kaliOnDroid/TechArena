@@ -1,4 +1,4 @@
-package com.kaliondroid.techarena
+package com.kaliondroid.techarena.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

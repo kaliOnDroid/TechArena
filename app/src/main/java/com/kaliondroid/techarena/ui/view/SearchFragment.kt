@@ -1,4 +1,4 @@
-package com.kaliondroid.techarena
+package com.kaliondroid.techarena.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.kaliondroid.techarena
+package com.kaliondroid.techarena.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.kaliondroid.techarena.R
 import com.kaliondroid.techarena.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
