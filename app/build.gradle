@@ -58,7 +58,7 @@ dependencies {
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
-    implementation "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
 
     // image loader
@@ -76,6 +76,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
 
+    // Network response wrapper
+    implementation "com.github.haroldadmin:NetworkResponseAdapter:5.0.0"
+
     // navigation
     implementation "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
@@ -84,6 +87,9 @@ dependencies {
     // dependency-injection
     implementation "com.google.dagger:hilt-android:$versions.hilt"
     kapt "com.google.dagger:hilt-compiler:$versions.hilt"
+
+    // Network Debugger
+    debugImplementation "com.github.chuckerteam.chucker:library:$versions.chucker"
 
 }
 
