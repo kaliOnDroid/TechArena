@@ -4,14 +4,11 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.haroldadmin.cnradapter.NetworkResponse
-import com.kaliondroid.techarena.data.models.Data
-import com.kaliondroid.techarena.data.models.ErrorResponse
-import com.kaliondroid.techarena.data.models.NewsResponse
+import com.kaliondroid.techarena.data.models.NewsItem
 import com.kaliondroid.techarena.data.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,8 +18,8 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    private val _techNews = MutableStateFlow<List<Data>>(emptyList())
-    val newsStateFlow: StateFlow<List<Data>> = _techNews
+    private val _techNews = MutableStateFlow<List<NewsItem>>(emptyList())
+    val newsStateFlow: StateFlow<List<NewsItem>> = _techNews
 
     private val _errorMessage = MutableStateFlow("UnKnown Error")
     val errorMessage: StateFlow<String> = _errorMessage

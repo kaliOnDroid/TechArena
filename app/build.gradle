@@ -79,6 +79,9 @@ dependencies {
     // Network response wrapper
     implementation "com.github.haroldadmin:NetworkResponseAdapter:5.0.0"
 
+    // Paging
+    implementation "androidx.paging:paging-runtime:$versions.paging"
+
     // navigation
     implementation "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"

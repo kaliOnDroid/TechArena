@@ -1,6 +1,6 @@
 package com.kaliondroid.techarena.data.models
 
-data class Data(
+data class NewsItem(
     val author: String?,
     val category: String?,
     val country: String?,

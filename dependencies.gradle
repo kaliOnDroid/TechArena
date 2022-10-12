@@ -29,5 +29,8 @@ ext.versions = [
         chucker              : '3.5.2',
 
         // Network response wrapper
-        responseWrapper      : '5.0.0'
+        responseWrapper      : '5.0.0',
+
+        // Paging
+        paging               : '3.1.1'
 ]
