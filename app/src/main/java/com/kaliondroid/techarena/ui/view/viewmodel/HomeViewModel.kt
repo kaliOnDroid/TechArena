@@ -1,4 +1,4 @@
-package com.kaliondroid.techarena.ui.view.viewmodel;
+package com.kaliondroid.techarena.ui.view.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

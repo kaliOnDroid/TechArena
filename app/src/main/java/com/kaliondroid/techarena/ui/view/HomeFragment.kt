@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.viewpager.widget.PagerAdapter
-import com.kaliondroid.techarena.R
 import com.kaliondroid.techarena.databinding.FragmentHomeBinding
 import com.kaliondroid.techarena.ui.adapter.NewsAdapter
 import com.kaliondroid.techarena.ui.view.viewmodel.HomeViewModel

@@ -1,7 +1,5 @@
 package com.kaliondroid.techarena.data.api
 
-import com.haroldadmin.cnradapter.NetworkResponse
-import com.kaliondroid.techarena.data.models.ErrorResponse
 import com.kaliondroid.techarena.data.models.NewsResponse
 import com.kaliondroid.techarena.utils.API_KEY
 import com.kaliondroid.techarena.utils.CATEGORY
