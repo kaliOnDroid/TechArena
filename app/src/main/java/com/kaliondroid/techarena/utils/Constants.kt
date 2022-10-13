@@ -5,4 +5,4 @@ import com.kaliondroid.techarena.BuildConfig
 const val API_KEY = BuildConfig.API_KEY
 const val CATEGORY = "technology"
 const val BASE_URL = "http://api.mediastack.com/v1/"
-const val LIMIT = 24
+const val LIMIT = 25
