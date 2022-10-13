@@ -13,6 +13,7 @@ import com.kaliondroid.techarena.R
 import com.kaliondroid.techarena.databinding.FragmentHomeBinding
 import com.kaliondroid.techarena.ui.adapter.NewsAdapter
 import com.kaliondroid.techarena.ui.view.viewmodel.HomeViewModel
+import com.kaliondroid.techarena.utils.VerticalStackTransformer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -41,7 +42,11 @@ class HomeFragment : Fragment() {
 
     private fun initView() {
         binding.apply {
-            pager.adapter = pagerAdapter
+            pager.apply {
+                adapter = pagerAdapter
+                offscreenPageLimit = 3
+                setPageTransformer(VerticalStackTransformer(3))
+            }
         }
     }
 

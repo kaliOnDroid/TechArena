@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface NewsApi {
 
-    @GET("news?access_key=$API_KEY&categories=$CATEGORY")
+    @GET("news?access_key=$API_KEY&categories=$CATEGORY&languages=en")
     suspend fun fetchTechNews(
         @Query("offset") offset: Int
     ): NewsResponse

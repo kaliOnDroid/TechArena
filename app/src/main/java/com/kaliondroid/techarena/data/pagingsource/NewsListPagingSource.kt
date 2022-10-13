@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.kaliondroid.techarena.data.api.NewsApi
 import com.kaliondroid.techarena.data.models.NewsItem
+import com.kaliondroid.techarena.utils.LIMIT
 
 class NewsListPagingSource(
   private val api: NewsApi
@@ -16,7 +17,7 @@ class NewsListPagingSource(
        LoadResult.Page(
         data = response.data ?: emptyList(),
         prevKey = null, // Only paging forward.
-        nextKey = response.pagination?.offset
+        nextKey = response.pagination?.offset?.plus(LIMIT)
       )
     } catch (e: Exception) {
       // Handle errors in this block and return LoadResult.Error if it is an
