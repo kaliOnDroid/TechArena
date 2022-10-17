@@ -1,7 +1,9 @@
 package com.kaliondroid.techarena.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +27,7 @@ class NewsAdapter @Inject constructor() :
 
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        private val context = binding.root.context
         fun bind(item: NewsItem) {
             binding.apply {
                 item.apply {
@@ -35,6 +37,18 @@ class NewsAdapter @Inject constructor() :
                         .load(image)
                         .into(ivNews)
                     tvSourceName.text = source
+                    ivShare.setOnClickListener {
+                        val shareIntent = Intent.createChooser(
+                            Intent().apply {
+                                action = Intent.ACTION_SEND
+                                putExtra(Intent.EXTRA_TEXT, url)
+                                putExtra(Intent.EXTRA_TEXT, title)
+                                type = "text/plain"
+                            },
+                            null
+                        )
+                        context.startActivity(shareIntent)
+                    }
                 }
             }
         }
