@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.viewpager2.widget.ViewPager2
+import kotlin.math.abs
 
 class VerticalStackTransformer(private val offscreenPageLimit: Int) : ViewPager2.PageTransformer {
 
@@ -21,7 +22,7 @@ class VerticalStackTransformer(private val offscreenPageLimit: Int) : ViewPager2
 
     override fun transformPage(page: View, position: Float) {
         page.apply {
-            ViewCompat.setElevation(page, -Math.abs(position))
+            ViewCompat.setElevation(page, -abs(position))
 
             val scaleFactor = -SCALE_FACTOR * position + DEFAULT_SCALE
             val alphaFactor = -ALPHA_FACTOR * position + DEFAULT_ALPHA
@@ -49,5 +50,5 @@ class VerticalStackTransformer(private val offscreenPageLimit: Int) : ViewPager2
         }
     }
 
-    val Int.dpToPx: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+    private val Int.dpToPx: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 }

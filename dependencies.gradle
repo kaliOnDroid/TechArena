@@ -11,16 +11,12 @@ ext.versions = [
 
         // ktx
         activityKtx         : '1.6.0',
-        fragmentKtx         : '1.5.3',
 
         // coroutines
         coroutines          : '1.6.4',
 
         // lifecycle-aware components
         lifecycle           : '2.5.1',
-
-        // navigation
-        navigation          : '2.5.2',
 
         // dependency-injection
         hilt                 : '2.44',
