@@ -1,16 +1,12 @@
 package com.kaliondroid.techarena.di
 
-import android.content.Context
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.kaliondroid.techarena.data.api.NewsApi
 import com.kaliondroid.techarena.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,13 +18,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideInterceptor(@ApplicationContext context: Context): Interceptor =
-        ChuckerInterceptor.Builder(context).maxContentLength(250_000L).build()
-
-    @Provides
-    @Singleton
-    fun provideOkHttpClient(interceptor: Interceptor): OkHttpClient =
-        OkHttpClient.Builder().addInterceptor(interceptor).build()
+    fun provideOkHttpClient(): OkHttpClient =
+        OkHttpClient.Builder().build()
 
     @Provides
     @Singleton

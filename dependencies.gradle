@@ -21,9 +21,6 @@ ext.versions = [
         // dependency-injection
         hilt                 : '2.44',
 
-        // Network Debugger
-        chucker              : '3.5.2',
-
         // Network response wrapper
         responseWrapper      : '5.0.0',
 
