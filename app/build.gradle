@@ -67,6 +67,7 @@ dependencies {
 
     // ktx
     implementation "androidx.activity:activity-ktx:$versions.activityKtx"
+    implementation "androidx.fragment:fragment-ktx:$versions.fragmentKtx"
 
     // coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
@@ -80,6 +81,11 @@ dependencies {
 
     // Paging
     implementation "androidx.paging:paging-runtime:$versions.paging"
+
+    // navigation
+    implementation "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 
     // dependency-injection
     implementation "com.google.dagger:hilt-android:$versions.hilt"
