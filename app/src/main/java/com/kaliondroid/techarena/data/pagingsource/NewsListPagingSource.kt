@@ -3,21 +3,22 @@ package com.kaliondroid.techarena.data.pagingsource
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.kaliondroid.techarena.data.api.NewsApi
-import com.kaliondroid.techarena.data.models.NewsItem
-import com.kaliondroid.techarena.utils.LIMIT
+import com.kaliondroid.techarena.data.models.Article
 
 class NewsListPagingSource(
   private val api: NewsApi
-) : PagingSource<Int, NewsItem>() {
-  override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NewsItem> {
+) : PagingSource<Int, Article>() {
+  override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
     return try {
       // Start refresh at page 1 if undefined.
-      val nextOffset = params.key ?: 0
-      val response = api.fetchTechNews(nextOffset)
+      val page = params.key ?: 1
+      val response = api.fetchNews(page)
+
+      val nextKey = if (response.articles.isEmpty()) null else page + 1
        LoadResult.Page(
-        data = response.data ?: emptyList(),
+        data = response.articles,
         prevKey = null, // Only paging forward.
-        nextKey = response.pagination?.offset?.plus(LIMIT)
+        nextKey = nextKey
       )
     } catch (e: Exception) {
       // Handle errors in this block and return LoadResult.Error if it is an
@@ -26,7 +27,7 @@ class NewsListPagingSource(
     }
   }
 
-  override fun getRefreshKey(state: PagingState<Int, NewsItem>): Int? {
+  override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
     // Try to find the page key of the closest page to anchorPosition, from
     // either the prevKey or the nextKey, but you need to handle nullability
     // here:

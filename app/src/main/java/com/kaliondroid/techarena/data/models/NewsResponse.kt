@@ -1,6 +1,7 @@
 package com.kaliondroid.techarena.data.models
 
 data class NewsResponse(
-    val `data`: List<NewsItem>?,
-    val pagination: Pagination?
+    val articles: List<Article>,
+    val status: String,
+    val totalResults: Int
 )

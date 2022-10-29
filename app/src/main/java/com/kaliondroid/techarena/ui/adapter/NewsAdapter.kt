@@ -7,12 +7,12 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.kaliondroid.techarena.data.models.NewsItem
+import com.kaliondroid.techarena.data.models.Article
 import com.kaliondroid.techarena.databinding.ItemNewsBinding
 import javax.inject.Inject
 
 class NewsAdapter @Inject constructor() :
-    PagingDataAdapter<NewsItem, NewsAdapter.NewsViewHolder>(NewsComparator) {
+    PagingDataAdapter<Article, NewsAdapter.NewsViewHolder>(NewsComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         return NewsViewHolder(
@@ -27,15 +27,15 @@ class NewsAdapter @Inject constructor() :
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val context = binding.root.context
-        fun bind(item: NewsItem) {
+        fun bind(item: Article) {
             binding.apply {
                 item.apply {
                     tvNewsTitle.text = title
                     tvNewsDescription.text = description
                     Glide.with(binding.root.context)
-                        .load(image)
+                        .load(urlToImage)
                         .into(ivNews)
-                    tvSourceName.text = source
+                    tvSourceName.text = source?.name ?: "Unknown"
                     ivShare.setOnClickListener {
                         val shareIntent = Intent.createChooser(
                             Intent().apply {
@@ -53,12 +53,12 @@ class NewsAdapter @Inject constructor() :
         }
     }
 
-    object NewsComparator : DiffUtil.ItemCallback<NewsItem>() {
-        override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean {
+    object NewsComparator : DiffUtil.ItemCallback<Article>() {
+        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem.title == newItem.title
         }
 
-        override fun areContentsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean {
+        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem == newItem
         }
     }

@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.kaliondroid.techarena.data.api.NewsApi
 import com.kaliondroid.techarena.data.pagingsource.NewsListPagingSource
-import com.kaliondroid.techarena.utils.LIMIT
+import com.kaliondroid.techarena.utils.NETWORK_PAGE_SIZE
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(
@@ -13,6 +13,6 @@ class NewsRepository @Inject constructor(
 
     fun getNewsList() = Pager(
         pagingSourceFactory = { NewsListPagingSource(api) },
-        config = PagingConfig(pageSize = LIMIT)
+        config = PagingConfig(pageSize = NETWORK_PAGE_SIZE)
     ).flow
 }
