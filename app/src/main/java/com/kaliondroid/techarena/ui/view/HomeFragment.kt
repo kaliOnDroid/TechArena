@@ -20,7 +20,8 @@ import javax.inject.Inject
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    @Inject lateinit var pagerAdapter: NewsAdapter
+    @Inject
+    lateinit var pagerAdapter: NewsAdapter
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -38,11 +39,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
+
         binding.apply {
             pager.apply {
                 adapter = pagerAdapter
-                offscreenPageLimit = 3
-                setPageTransformer(VerticalStackTransformer(3))
             }
         }
     }

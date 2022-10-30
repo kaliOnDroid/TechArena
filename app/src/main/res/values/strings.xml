@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tech Arena</string>
+    <string name="search">Search</string>
+    <string name="content_description_search">Search Icon</string>
 </resources>
