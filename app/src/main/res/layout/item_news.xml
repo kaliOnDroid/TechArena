@@ -1,95 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:cardCornerRadius="4dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:id="@+id/iv_news"
+        android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="4:5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_news"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="4:5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:background="@drawable/bg_news_title"
+        android:id="@+id/tv_news_title"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:text="Don't get complacent, Cong working silently this time: PM Modi to BJP workers"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_news"
+        app:shapeAppearanceOverlay="@style/circle"
+        app:srcCompat="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_source_name"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:text="Ambcrypto"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/shapeableImageView"
+        app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+
+    <TextView
+        android:id="@+id/tv_posted_date"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:text="1 day ago"
+        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_source_name" />
+
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_share"
+        app:layout_constraintBottom_toBottomOf="@id/shapeableImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/shapeableImageView" />
+
+    <TextView
+        android:id="@+id/tv_news_description"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="20dp"
+        android:text="Don't get complacent, Cong working silently this time: PM Modi to BJP workersDon't get complacent, workers"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_news"
+        app:layout_constraintEnd_toEndOf="@id/iv_news"
+        app:layout_constraintStart_toStartOf="@id/iv_news"
+        app:layout_constraintTop_toBottomOf="@id/iv_news">
 
         <TextView
-            android:id="@+id/tv_news_title"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/bg_news_title"
-            android:padding="20dp"
-            android:text="Don't get complacent, Cong working silently this time: PM Modi to BJP workers"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_news"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/shapeableImageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_news"
-            app:shapeAppearanceOverlay="@style/circle"
-            app:srcCompat="@color/black" />
-
-        <TextView
-            android:id="@+id/tv_source_name"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Ambcrypto"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/shapeableImageView"
-            app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
-
-        <TextView
-            android:id="@+id/tv_posted_date"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="1 day ago"
-            app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
-            app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-            app:layout_constraintTop_toBottomOf="@+id/tv_source_name" />
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
 
-        <ImageView
-            app:layout_constraintTop_toTopOf="@id/shapeableImageView"
-            app:layout_constraintBottom_toBottomOf="@id/shapeableImageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="20dp"
-            android:background="?selectableItemBackground"
-            android:src="@drawable/ic_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e0e0e0"
+        app:layout_constraintBottom_toTopOf="@+id/textView" />
 
-        <TextView
-            android:id="@+id/tv_news_description"
-            style="@style/TextAppearance.MaterialComponents.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:maxLines="4"
-            android:ellipsize="end"
-            android:text="Don't get complacent, Cong working silently this time: PM Modi to BJP workers
-Don't get complacent, workers"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+    <TextView
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center|start"
+        android:id="@+id/textView"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="24dp"
+        android:text="Tap to read more"
+        android:textColor="#9e9e9e"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="7:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:focusable="true" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,15 +27,14 @@ class NewsAdapter @Inject constructor() :
 
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val context = binding.root.context
+        private val context: Context = binding.root.context
+
         fun bind(item: Article) {
             binding.apply {
                 item.apply {
-                    tvNewsTitle.text = title?.trim()
+                    tvNewsTitle.text = title
                     tvNewsDescription.text = description
-                    Glide.with(binding.root.context)
-                        .load(urlToImage)
-                        .into(ivNews)
+                    ivNews.load(context, urlToImage)
                     tvSourceName.text = source?.name ?: "Unknown"
                 }
             }
