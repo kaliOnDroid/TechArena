@@ -1,7 +1,9 @@
 package com.kaliondroid.techarena.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -25,11 +27,11 @@ class NewsAdapter @Inject constructor() :
 
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        val context = binding.root.context
         fun bind(item: Article) {
             binding.apply {
                 item.apply {
-                    tvNewsTitle.text = title
+                    tvNewsTitle.text = title?.trim()
                     tvNewsDescription.text = description
                     Glide.with(binding.root.context)
                         .load(urlToImage)
@@ -50,4 +52,10 @@ class NewsAdapter @Inject constructor() :
         }
     }
 
+}
+
+fun ImageView.load(context: Context, url: String?) {
+    Glide.with(context)
+        .load(url)
+        .into(this)
 }
