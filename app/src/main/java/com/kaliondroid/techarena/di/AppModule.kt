@@ -1,6 +1,5 @@
 package com.kaliondroid.techarena.di
 
-import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.kaliondroid.techarena.data.api.NewsApi
 import com.kaliondroid.techarena.utils.API_KEY
 import com.kaliondroid.techarena.utils.BASE_URL

@@ -7,7 +7,7 @@ ext.versions = [
         okHttp              : '4.10.0',
 
         // image loader
-        glide               : '4.13.2',
+        avatar               : '1.0.7',
 
         // ktx
         activityKtx         : '1.6.0',
