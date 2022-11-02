@@ -61,17 +61,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
         app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
         app:layout_constraintTop_toBottomOf="@+id/tv_source_name" />
-    <!--
-        <ImageView
-            android:id="@+id/iv_share"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_share"
-            app:layout_constraintBottom_toBottomOf="@id/shapeableImageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/shapeableImageView" />
-    -->
 
     <TextView
         android:id="@+id/tv_news_description"
@@ -102,7 +91,7 @@
         android:gravity="center|start"
         android:paddingHorizontal="24dp"
         android:text="Tap to read more"
-        android:textColor="#3366CC"
+        android:textColor="#424242"
         android:fontFamily="sans-serif-medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="7:1"
@@ -128,18 +117,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_share"
+        android:drawablePadding="6dp"
+        android:gravity="center"
         android:paddingHorizontal="14dp"
         android:paddingVertical="8dp"
-        android:gravity="center"
-        android:drawablePadding="6dp"
-        android:background="@drawable/bg_share"
+        android:text="Share"
+        android:textColor="#424242"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:text="Share"
+        app:drawableStartCompat="@drawable/ic_share"
         app:layout_constraintBottom_toBottomOf="@id/shapeableImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/shapeableImageView"
-        app:drawableStartCompat="@drawable/ic_share" />
+        app:layout_constraintTop_toTopOf="@id/shapeableImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
