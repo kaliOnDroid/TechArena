@@ -1,6 +1,7 @@
 package com.kaliondroid.techarena.ui.adapter
 
 import android.content.Context
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kaliondroid.techarena.data.models.Article
 import com.kaliondroid.techarena.databinding.ItemNewsBinding
+import java.text.SimpleDateFormat
+import java.util.TimeZone
 import javax.inject.Inject
+
 
 class NewsAdapter @Inject constructor() :
     PagingDataAdapter<Article, NewsAdapter.NewsViewHolder>(NewsComparator) {
@@ -36,6 +40,17 @@ class NewsAdapter @Inject constructor() :
                     tvNewsDescription.text = description
                     ivNews.load(context, urlToImage)
                     tvSourceName.text = source?.name ?: "Unknown"
+
+                    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:SSS'Z'")
+                    sdf.timeZone = TimeZone.getTimeZone("GMT")
+                    try {
+                        val time = sdf.parse(publishedAt).time
+                        val now = System.currentTimeMillis()
+                        val ago = DateUtils.getRelativeTimeSpanString(time, now, DateUtils.MINUTE_IN_MILLIS)
+                        tvPostedDate.text = ago
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }
             }
         }
@@ -52,6 +67,7 @@ class NewsAdapter @Inject constructor() :
     }
 
 }
+
 
 fun ImageView.load(context: Context, url: String?) {
     Glide.with(context)
