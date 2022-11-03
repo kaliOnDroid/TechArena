@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface NewsApi {
 
-    @GET("top-headlines?category=technology")
+    @GET("top-headlines?category=technology&language=en")
     suspend fun fetchNews(
         @Query("page") page: Int
     ): NewsResponse
