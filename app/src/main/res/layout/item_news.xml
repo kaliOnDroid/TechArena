@@ -80,10 +80,10 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#e0e0e0"
-        app:layout_constraintBottom_toTopOf="@+id/textView" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_tap_to_read_cta" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_tap_to_read_cta"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="?attr/selectableItemBackground"

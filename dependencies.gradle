@@ -25,6 +25,9 @@ ext.versions = [
         // dependency-injection
         hilt                 : '2.44',
 
-        // Paging
-        paging               : '3.1.1'
+        // paging
+        paging               : '3.1.1',
+
+        // browser
+        browser              : '1.4.0'
 ]

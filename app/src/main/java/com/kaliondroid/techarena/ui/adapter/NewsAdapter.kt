@@ -5,12 +5,15 @@ import android.content.Intent
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.kaliondroid.techarena.R
 import com.kaliondroid.techarena.data.models.Article
 import com.kaliondroid.techarena.databinding.ItemNewsBinding
+import com.kaliondroid.techarena.ui.view.HomeFragment
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.TimeZone
@@ -47,6 +50,9 @@ class NewsAdapter @Inject constructor() :
                     tvPostedDate.text = timeAgo(publishedAt)
                     tvShareCta.setOnClickListener {
                         share(context, url)
+                    }
+                    tvTapToReadCta.setOnClickListener {
+                        it.findNavController().navigate(R.id.action_homeFragment_to_newsDetailFragment)
                     }
                 }
             }

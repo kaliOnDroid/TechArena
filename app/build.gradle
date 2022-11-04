@@ -78,6 +78,9 @@ dependencies {
     // paging
     implementation "androidx.paging:paging-runtime:$versions.paging"
 
+    // browser
+    implementation "androidx.browser:browser:$versions.browser"
+
     // navigation
     implementation "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
