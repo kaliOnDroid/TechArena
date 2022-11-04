@@ -1,6 +1,7 @@
 package com.kaliondroid.techarena.ui.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -44,6 +45,9 @@ class NewsAdapter @Inject constructor() :
                         ivSrc.avatarInitials = sourceInitials(name)
                     }
                     tvPostedDate.text = timeAgo(publishedAt)
+                    tvShareCta.setOnClickListener {
+                        share(context, url)
+                    }
                 }
             }
         }
@@ -63,6 +67,17 @@ class NewsAdapter @Inject constructor() :
         return name.split(' ').map {
             it[0]
         }.joinToString()
+    }
+
+    fun share(context: Context, url: String?) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, url)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        context.startActivity(shareIntent)
     }
 
     fun timeAgo(publishedDate: String?): String {
