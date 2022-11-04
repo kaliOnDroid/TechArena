@@ -7,11 +7,11 @@ plugins {
 apply from: rootProject.file('dependencies.gradle')
 
 android {
-    namespace 'com.kaliondroid.techarena'
+    namespace 'com.kaiarcz.techarena'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.kaliondroid.techarena"
+        applicationId "com.kaiarcz.techarena"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -44,10 +44,6 @@ android {
 }
 
 dependencies {
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation "androidx.core:core-ktx:1.9.0"
     implementation "androidx.appcompat:appcompat:1.5.1"
