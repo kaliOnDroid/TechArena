@@ -42,7 +42,7 @@ class NewsAdapter(
                     ivNews.load(urlToImage)
                     source?.name?.let { name ->
                         tvSourceName.text = name
-                        ivSrc.avatarInitials = sourceInitials(name)
+                        ivSrc.avatarInitials = sourceInitials(name.trim())
                     }
                     tvPostedDate.text = timeAgo(publishedAt)
                     tvShareCta.setOnClickListener {
@@ -68,7 +68,7 @@ class NewsAdapter(
 
     fun sourceInitials(name: String): String {
         return name.split(' ').map {
-            it[0]
+            it.first()
         }.joinToString()
     }
 
